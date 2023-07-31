@@ -44,6 +44,7 @@ export default function MyApp(props) {
                             flexGrow: 1,
                             height: '100vh',
                             overflow: 'auto',
+                            marginTop: '28px'
                         }}
                     >
                         <Toolbar />

@@ -3,7 +3,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 // import ListSubheader from '@mui/material/ListSubheader';
-import AssignmentIcon from '@mui/icons-material/Assignment';
+// import AssignmentIcon from '@mui/icons-material/Assignment';
 
 
 // svg icons 
@@ -16,76 +16,92 @@ import Settings from '@/static/svg/settings';
 import Contact from '@/static/svg/contact';
 import Gift from '@/static/svg/gift';
 import Logout from '@/static/svg/logout';
+import ArrowLeft from '@/static/svg/arrowLeft';
+import Link from 'next/link'
+import { useRouter } from "next/router";
 
-export const mainListItems = (
-    <React.Fragment>
+function MainListItems(props) {
+    const router = useRouter();
+    return <React.Fragment>
         {/* Dashboard */}
-        <ListItemButton>
+
+        <Link href='/' className={`${!props.open ? 'close' : ''} ${router.pathname == '/' ? 'active' : ''}`}>
             <ListItemIcon>
                 <Dashboard />
             </ListItemIcon>
             <ListItemText primary="Dashboard" />
-        </ListItemButton>
+        </Link>
         {/* Order */}
-        <ListItemButton>
+        <Link href='/orders' className={`${!props.open ? 'close' : ''} ${router.pathname == '/orders' ? 'active' : ''}`}>
             <ListItemIcon>
                 <Order />
             </ListItemIcon>
             <ListItemText primary="Orders" />
-        </ListItemButton>
+            <span className='infomatics'>3</span>
+        </Link>
         {/* Customer */}
-        <ListItemButton>
+        <Link href='/customers' className={`${!props.open ? 'close' : ''} ${router.pathname == '/customers' ? 'active' : ''}`}>
             <ListItemIcon>
                 <Customer />
             </ListItemIcon>
             <ListItemText primary="Customers" />
-        </ListItemButton>
+        </Link>
         {/* Inventory */}
-        <ListItemButton>
+        <Link href='/inventory' className={`${!props.open ? 'close' : ''} ${router.pathname == '/inventory' ? 'active' : ''}`}>
             <ListItemIcon>
                 <Inventory />
             </ListItemIcon>
             <ListItemText primary="Inventory" />
-        </ListItemButton>
+        </Link>
         {/* Conversations */}
-        <ListItemButton>
+        <Link href='/conversations' className={`${!props.open ? 'close' : ''} ${router.pathname == '/conversations' ? 'active' : ''}`}>
             <ListItemIcon>
                 <Conversation />
             </ListItemIcon>
             <ListItemText primary="Conversations" />
-        </ListItemButton>
+            <span className='infomatics'>16</span>
+        </Link>
         {/* Settings */}
-        <ListItemButton>
+        <Link href='/settings' className={`${!props.open ? 'close' : ''} ${router.pathname == '/settings' ? 'active' : ''}`}>
             <ListItemIcon>
                 <Settings />
             </ListItemIcon>
             <ListItemText primary="Settings" />
-        </ListItemButton>
+        </Link>
     </React.Fragment>
-);
+};
 
-export const secondaryListItems = (
-    <React.Fragment>
+function SecondaryListItems(props) {
+    const router = useRouter();
+    return <React.Fragment>
         {/* Contact */}
-        <ListItemButton>
+        <Link href='/contact' className={`contactRoute noHover ${!props.open ? 'close' : ''} ${router.pathname == '/contact' ? 'active' : ''}`}>
             <ListItemIcon>
                 <Contact />
             </ListItemIcon>
             <ListItemText primary="Contact Support" />
-        </ListItemButton>
+        </Link>
         {/* Free Gift Awaits You! */}
-        <ListItemButton>
+        <Link href='/gift' className={`gift noHover ${!props.open ? 'close' : ''} ${router.pathname == '/gift' ? 'active' : ''}`}>
             <ListItemIcon>
                 <Gift />
             </ListItemIcon>
             <ListItemText primary="Free Gift Awaits You!" />
-        </ListItemButton>
+            <div className='upgrade'>
+                <span>Upgrade your account</span>
+                <div>
+                    <ArrowLeft />
+                </div>
+            </div>
+        </Link>
         {/* Logout */}
-        <ListItemButton>
+        <ListItemButton title='logout' className={`logout noHover ${!props.open ? 'close' : ''}`}>
             <ListItemIcon>
                 <Logout />
             </ListItemIcon>
             <ListItemText primary="Logout" />
         </ListItemButton>
     </React.Fragment>
-);
+};
+
+export default { MainListItems, SecondaryListItems }
