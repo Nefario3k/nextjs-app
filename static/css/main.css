@@ -10,62 +10,33 @@
     --infoY3: #FEF5EA;
     --black2: #1C1D22;
     --black3: #45464E;
+    --black4: #33343A;
     --danger-color: #CC5F5F;
-    --faded-blue: #F0F4FF;
-    --faded-blue-darken1: #CCD7F6;
-    --gray: #EAE4E4;
-    --gray-darken1: #706e66;
-    --gray-darken2: #808080;
-    --green: #61CA61;
-    --green2: #85DD85;
-    --green3: #BFFFBF;
-    --green4: #9DEC9D;
-    --green5: #8AC53E;
-    --brown: #804000;
-    --green-lighten1: #BBFBBB;
-    --input-bg: #FFF4FA;
-    --input-alt-bg: #0000000A;
+    --danger-light-color: #f57e771f;
+    --green: #519C66;
+    --green-light: #32936f1f;
     /* main colors  */
     --primary-color: #5570F1;
-    --primary-light-color: #ECF1FF;
+    --primary-light-color: #5570f114;
     --primary-light-color2: #DAE3FF;
     --primary-thick-color: #0061F7;
     --tertiary-color: #FF96CC;
     --normal-radius: .8rem;
     font-size: 62.5%;
 
+    --textLight: #DBDEEE;
+
     --label-color: #5e63661a;
     --label-second-color: #6E7079;
     --label-third-color: #8B8D97;
-    --label-fouth-color: #828282;
-    --border-color: #D0D0D0;
-    --border-second-color: #EFEFEF;
-    --border-third-color: #E1E1E1;
-    --primary-lte-color: #5A75FF;
-    --card-one: #C6E2FF;
-    --card-two: #E6EFDB;
-    --card-three: #F8F8F9;
-    --card-four: #DEF2C3;
-    --card-five: #CDD7E2;
-    --card-six: #FFDDDD;
-    --card-seven: #D9D9D9;
-    --card-eight: #E4F5CE;
-    --card-nine: #DCE5FF;
-    --card-ten: #F6F2F2;
-    --card-alt-one: #EEE2E2;
+    --label-fouth-color: #BEC0CA;
+    --label-fifth-color: #A6A8B1;
 
-    --body-main-color: #F2F2F2;
-    --table-color: #F8F8F8;
-    --table-action-color: #F8F3F3;
-    --table-border-color: #EDEDED;
-    --table-border-second-color: #F0F0F0;
+    --border1: #F1F3F9;
+    --border2: #cfd3d4;
 
-    --expansion-bg: #FFE6F3;
-    --progress-bg: #E3E3E3;
-    --plan-bg: #FFFAFA;
-    --loan-docs-bg: #EBF0FF;
-    --total-bg: #EEF5FC;
-    --tab-bg: #F6F6F6;
+    --placeholder: #ABAFB1;
+
 }
 
 @font-face {
@@ -108,4 +79,40 @@ input::-webkit-inner-spin-button {
 /* for firefox  */
 input[type="number"] {
     -moz-appearance: textfield;
+}
+
+ol,
+ul,
+menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mobileburger {
+    display: none;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+section.content {
+    animation: transIn 0.2s linear 0s;
+}
+
+@keyframes transIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

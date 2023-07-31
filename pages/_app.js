@@ -1,5 +1,6 @@
 import '../static/css/main.css'
 import '../static/css/overide.scss'
+import '../static/css/responsive.scss'
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
@@ -44,11 +45,11 @@ export default function MyApp(props) {
                             flexGrow: 1,
                             height: '100vh',
                             overflow: 'auto',
-                            marginTop: '28px'
+                            paddingTop: '28px'
                         }}
                     >
                         <Toolbar />
-                        <Container maxWidth="xl" sx={{ mt: 4, mb: 4 }}>
+                        <Container maxWidth="xl" sx={{ mt: 3, mb: 3 }}>
                             <Component {...pageProps} />
                         </Container>
                     </Box>
