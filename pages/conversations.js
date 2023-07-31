@@ -1,5 +1,6 @@
 import Head from "next/head";
 import IconButton from '@mui/material/IconButton';
+import ContactList from "@/src/content/contact";
 
 // icons 
 import SearchIcon from "@/static/svg/search";
@@ -39,6 +40,7 @@ export default function Home() {
                                     </button>
                                 </div>
                             </div>
+                            <ContactList />
                         </div>
                     </div>
                     {/* chat  */}

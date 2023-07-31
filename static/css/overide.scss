@@ -416,6 +416,22 @@
                     background-color: var(--green-light);
                 }
             }
+            &.message_counter {
+                text-transform: capitalize;
+                text-align: center;
+                padding: 2px 7px;
+                font-size: 1.2rem;
+                color: var(--black2);
+                background-color: var(--infoY3);
+                border-radius: 30px;
+                &.higher {
+                    padding: 4px 8px;
+                    background-color: var(--infoY);
+                    border-radius: 50%;
+                    width: max-content;
+                    margin-left: auto;
+                }
+            }
             &.variant_danger {
                 color: var(--danger-color);
             }
@@ -540,6 +556,79 @@
                 h3,
                 span.tag {
                     font-size: 2rem;
+                }
+            }
+            ul {
+                margin-top: -12px;
+                max-height: 60vh;
+                overflow: scroll;
+                &::-webkit-scrollbar {
+                    width: 0;
+                }
+                li {
+                    padding: 12px 24px;
+                    margin-bottom: 12px;
+                    cursor: pointer;
+                    border-bottom: 1px solid var(--border1, #f1f3f9);
+                    background: transparent;
+                    border-right: 4px solid transparent;
+                    transition: all 0.25s ease-in-out;
+                    aside {
+                        .imageHolder {
+                            width: 4.8rem;
+                            height: 4.8rem;
+                            border-radius: 8px;
+                            border: 1px solid var(--border1, #f1f3f9);
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                                border-radius: inherit;
+                            }
+                            .status {
+                                top: 1px;
+                                right: -9px;
+                                width: 1.5rem;
+                                height: 1.5rem;
+                                border-radius: 50%;
+                                border: 3px solid #fff;
+                                background-color: var(--tag-status);
+                                &.online {
+                                    background-color: var(--primary-color);
+                                }
+                            }
+                        }
+                        h6,
+                        h4 {
+                            color: var(--black3, #45464e);
+                            font-size: 1.6rem;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+                            overflow: hidden;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 1;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+                        h4 {
+                            font-weight: 400;
+                            font-size: 1.4rem;
+                            color: var(--label-third-color);
+                        }
+                    }
+                    span.tag {
+                        width: max-content;
+                    }
+                    &:hover,
+                    &.active {
+                        background: var(--hover1);
+                        border-right-color: var(--primary-color);
+                    }
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
                 }
             }
         }
