@@ -1,4 +1,7 @@
 
+
+import helper from '@/plugins/helper';
+const { formatNaira } = helper
 const orderArr = [
     {
         title: 'iPhone 13',
@@ -16,82 +19,18 @@ const orderArr = [
         status: 'completed',
         created_at: '12 Sept 2022',
     },
-    {
-        title: 'iPhone 13',
-        imageUrl: '../../static/image/order1.png',
-        price: 730000,
-        quantity: 1,
-        status: 'pending',
-        created_at: '12 Sept 2022',
-    },
-    {
-        title: 'iPhone 14',
-        imageUrl: '../../static/image/order2.png',
-        price: 730000,
-        quantity: 1,
-        status: 'completed',
-        created_at: '12 Sept 2022',
-    },
-    {
-        title: 'iPhone 13',
-        imageUrl: '../../static/image/order1.png',
-        price: 730000,
-        quantity: 1,
-        status: 'pending',
-        created_at: '12 Sept 2022',
-    },
-    {
-        title: 'iPhone 14',
-        imageUrl: '../../static/image/order2.png',
-        price: 730000,
-        quantity: 1,
-        status: 'completed',
-        created_at: '12 Sept 2022',
-    },
-    {
-        title: 'iPhone 13',
-        imageUrl: '../../static/image/order1.png',
-        price: 730000,
-        quantity: 1,
-        status: 'pending',
-        created_at: '12 Sept 2022',
-    },
-    {
-        title: 'iPhone 14',
-        imageUrl: '../../static/image/order2.png',
-        price: 730000,
-        quantity: 1,
-        status: 'pending',
-        created_at: '12 Sept 2022',
-    },
-    {
-        title: 'iPhone 13',
-        imageUrl: '../../static/image/order1.png',
-        price: 730000,
-        quantity: 1,
-        status: 'pending',
-        created_at: '12 Sept 2022',
-    },
-    {
-        title: 'iPhone 14',
-        imageUrl: '../../static/image/order2.png',
-        price: 730000,
-        quantity: 1,
-        status: 'pending',
-        created_at: '12 Sept 2022',
-    },
 ]
-export default function OrderList() {
-    const formatNaira = function (num) {
-        if (num === null) return "Nil";
-        const formatter = new Intl.NumberFormat("en-NG", {
-            style: "currency",
-            currency: "NGN",
-        });
-        return formatter.format(num);
+const multipliedArr = function () {
+    var arr = [];
+    for (let index = 0; index < 13; index++) {
+        arr = [...arr, ...orderArr]
     }
+
+    return arr;
+}
+export default function OrderList() {
     return <ul>
-        {orderArr.map((element, index) => {
+        {multipliedArr().map((element, index) => {
             return <li key={index + 22323} className="flex flex-row items-center justify-between gap-8">
                 <aside className="flex flex-row items-center gap-4">
                     <div className="imageHolder"><img src={element.imageUrl} alt={element.title} /></div>

@@ -1,5 +1,7 @@
 
 import * as React from 'react';
+import helper from '@/plugins/helper';
+const { getFullName } = helper
 const orderArr = [
     {
         first_name: 'Jane',
@@ -141,11 +143,6 @@ const multipliedArr = function () {
     return arr;
 }
 export default function ContactList() {
-    // full name
-    const getFullName = function (fname, lname) {
-        if (!fname && !lname) return "Nil";
-        return fname + " " + lname;
-    };
     const [active, setActive] = React.useState(true);
     const toggleChat = (element, index) => {
         setActive(index);

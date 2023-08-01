@@ -45,8 +45,8 @@ export default function Home() {
                     </div>
                     {/* chat  */}
                     <div style={{ width: 'calc(63.5% - 20px)' }} className="content_cards">
+                        
                     </div>
-
                 </div>
             </section>
         </>
