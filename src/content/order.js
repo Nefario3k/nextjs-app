@@ -22,7 +22,7 @@ const orderArr = [
 ]
 const multipliedArr = function () {
     var arr = [];
-    for (let index = 0; index < 13; index++) {
+    for (let index = 0; index < 5; index++) {
         arr = [...arr, ...orderArr]
     }
 

@@ -18,6 +18,7 @@ import HomeIcon from '@/public/svg/home';
 
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from 'next/link';
+import { useRouter } from "next/router";
 
 const { MainListItems, SecondaryListItems } = Lists
 
@@ -79,6 +80,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function ResponsiveDrawer() {
+    const router = useRouter();
     const [open, setOpen] = React.useState(true);
     const toggleDrawer = () => {
         setOpen(!open);
@@ -176,7 +178,7 @@ export default function ResponsiveDrawer() {
                     </IconButton>
                     <div style={{ flexGrow: 1 }}>
                         <div className='barContent'>
-                            <p className='useLocation' >Dashboard</p>
+                            <p className='useLocation' >{router.pathname == '/' ? 'Dashboard' : router.pathname.split('/')[1]}</p>
                             <div className='rightSide'>
                                 {/* drowpDownbtn */}
                                 <IconButton className='Btn drowpDownbtn' color="var(--black2)">
@@ -200,11 +202,12 @@ export default function ResponsiveDrawer() {
                                     <HomeIcon />
                                 </Link>
                                 <Link
+                                    className={router.pathname != '/' ? '' : 'hidden'}
                                     underline="hover"
                                     color="inherit"
-                                    href="/conversations"
+                                    href={`${router.pathname}`}
                                 >
-                                    Conversations
+                                    {router.pathname.split('/')[1]}
                                 </Link>
                             </Breadcrumbs>
                         </div>

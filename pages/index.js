@@ -8,6 +8,8 @@ import Folder from "@/public/svg/dashboard/folder";
 import Order from "@/public/svg/dashboard/order";
 import ArrowDown from '@/public/svg/arrowDown';
 import OrderList from "@/src/content/order";
+import Pie from "@/public/svg/pie";
+import Chart from "@/public/svg/chart";
 
 export default function Home() {
     return (
@@ -123,11 +125,30 @@ export default function Home() {
                                             <ArrowDown />
                                         </IconButton>
                                     </div>
+                                    <div className="mb-8 flex flex-col items-center gap-8">
+                                        <div style={{ width: '100%' }} className="pieData flex items-center justify-between gap-4">
+                                            <div className="flex items-center gap-4">
+                                                <span className="pieVal primary"></span>
+                                                <span className="tag">Acquisition</span>
+                                            </div>
+                                            <div className="flex items-center gap-4">
+                                                <span className="pieVal litePrimary"></span>
+                                                <span className="tag">Purchase</span>
+                                            </div>
+                                            <div className="flex items-center gap-4">
+                                                <span className="pieVal info"></span>
+                                                <span className="tag">Retention</span>
+                                            </div>
+                                        </div>
+                                        <div className="justify-center">
+                                            <Pie />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="flex flex-col gap-8 basis-1/2">
                                 {/* folder  */}
-                                <div className="content_cards variant_primary">
+                                <div style={{ height: '100%' }} className="content_cards variant_primary">
                                     <div className="flex gap-14 flex-col">
                                         <div className="topHeader flex justify-between items-center">
                                             <div>
@@ -150,7 +171,7 @@ export default function Home() {
                                     </div>
                                 </div>
                                 {/* cart  */}
-                                <div className="content_cards">
+                                <div style={{ height: '100%' }} className="content_cards">
                                     <div className="flex gap-14 flex-col">
                                         <div className="topHeader flex justify-between items-center">
                                             <div>
@@ -193,6 +214,9 @@ export default function Home() {
                                         <span>Last 7 Days</span>
                                         <ArrowDown />
                                     </IconButton>
+                                </div>
+                                <div className="mb-8 summaryChart">
+                                    <Chart />
                                 </div>
                             </div>
                         </div>

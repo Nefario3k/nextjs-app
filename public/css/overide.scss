@@ -293,6 +293,7 @@
             font-weight: 500;
             line-height: normal;
             margin: 0;
+            text-transform: capitalize;
         }
 
         .rightSide {
@@ -653,6 +654,35 @@
             }
         }
 
+        .pieData {
+            .pieVal {
+                width: 8px;
+                height: 8px;
+                border-radius: 100%;
+
+                &.primary {
+                    background-color: var(--primary-color);
+                }
+
+                &.info {
+                    background-color: var(--infoY);
+                }
+
+                &.litePrimary {
+                    background-color: #97A5EB;
+                }
+            }
+        }
+
+        .summaryChart {
+            width: 100%;
+
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
         &.variant_primary {
             background-color: var(--primary-color);
             color: #fff;
@@ -671,9 +701,9 @@
 
         &.variant_order {
             padding: 20px;
-            max-height: 75vh;
 
             ul {
+                // max-height: 75vh;
                 overflow: auto;
 
                 &::-webkit-scrollbar {
