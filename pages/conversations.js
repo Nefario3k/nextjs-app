@@ -11,7 +11,6 @@ export default function Home() {
         <>
             <Head>
                 <title>Conversations</title>
-                <link rel="icon" href="/favicon.ico" />
             </Head>
 
             <section className="content">

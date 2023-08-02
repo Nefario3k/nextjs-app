@@ -16,8 +16,7 @@ export default function Home() {
         <>
             <Head>
                 <title>Dashboard</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+                =            </Head>
 
             <section className="content">
                 {/* top cards  */}

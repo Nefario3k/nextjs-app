@@ -10,6 +10,7 @@
     &>div,
     a {
         border-radius: 12px;
+        position: relative;
         background-color: transparent;
         grid-gap: 16px;
         display: flex;
@@ -243,9 +244,16 @@
             justify-content: center !important;
 
             &>div:nth-child(2),
-            span.infomatics,
             .upgrade {
                 display: none !important;
+            }
+
+            span.infomatics {
+                position: absolute;
+                right: -2px;
+                top: -2px;
+                width: 2rem;
+                height: 2rem;
             }
         }
     }
