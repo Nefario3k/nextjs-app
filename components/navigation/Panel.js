@@ -8,7 +8,7 @@ import List from '@mui/material/List';
 import IconButton from '@mui/material/IconButton';
 // import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import Lists from './list';
+import Lists from '../../src/content/navigationList';
 import Logo from '@/static/svg/logo';
 import { Divider } from '@mui/material';
 // icons 

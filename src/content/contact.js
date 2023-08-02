@@ -1,6 +1,8 @@
 
 import * as React from 'react';
 import helper from '@/plugins/helper';
+import { useDispatch } from 'react-redux'
+import { setChat } from '@/store/chatSlice'
 const { getFullName } = helper
 const orderArr = [
     {
@@ -32,13 +34,13 @@ const orderArr = [
                 date_stamp: '12 August 2022',
             },
             {
-                user: false,
+                user: true,
                 content: 'I want to know if the price is negotiable, i need about 2 Units',
                 time_stamp: '12:55 am',
                 date_stamp: 'today',
             },
         ],
-        messageDateStamps: ['12 August 2022', 'yesterday', 'today'],
+        messageDateStamps: ['12 August 2022', 'today'],
         userItem: {
             title: 'iPhone 13',
             imageUrl: '../../static/image/order1.png',
@@ -75,13 +77,13 @@ const orderArr = [
                 date_stamp: '12 August 2022',
             },
             {
-                user: false,
+                user: true,
                 content: 'I want to know if the price is negotiable, i need about 2 Units',
                 time_stamp: '12:55 am',
                 date_stamp: 'today',
             },
         ],
-        messageDateStamps: ['12 August 2022', 'yesterday', 'today'],
+        messageDateStamps: ['12 August 2022', 'today'],
         userItem: {
             title: 'iPhone 13',
             imageUrl: '../../static/image/order1.png',
@@ -118,13 +120,13 @@ const orderArr = [
                 date_stamp: '12 August 2022',
             },
             {
-                user: false,
+                user: true,
                 content: 'I want to know if the price is negotiable, i need about 2 Units',
                 time_stamp: '12:55 am',
                 date_stamp: 'today',
             },
         ],
-        messageDateStamps: ['12 August 2022', 'yesterday', 'today'],
+        messageDateStamps: ['12 August 2022', 'today'],
         userItem: {
             title: 'iPhone 13',
             imageUrl: '../../static/image/order1.png',
@@ -143,9 +145,16 @@ const multipliedArr = function () {
     return arr;
 }
 export default function ContactList() {
-    const [active, setActive] = React.useState(true);
+    const dispatch = useDispatch();
+    const [active, setActive] = React.useState(null);
     const toggleChat = (element, index) => {
-        setActive(index);
+        if (index !== active) {
+            setActive(index);
+            dispatch(setChat(element))
+        } else {
+            setActive(null);
+            dispatch(setChat())
+        }
     };
     return <ul>
         {multipliedArr().map((element, index) => {

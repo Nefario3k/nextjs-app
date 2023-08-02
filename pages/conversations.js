@@ -1,6 +1,7 @@
 import Head from "next/head";
 import IconButton from '@mui/material/IconButton';
 import ContactList from "@/src/content/contact";
+import ChatArea from "@/components/Chat";
 
 // icons 
 import SearchIcon from "@/static/svg/search";
@@ -44,8 +45,8 @@ export default function Home() {
                         </div>
                     </div>
                     {/* chat  */}
-                    <div style={{ width: 'calc(63.5% - 20px)' }} className="content_cards">
-                        
+                    <div style={{ width: 'calc(63.5% - 20px)' }} className="content_cards variant__chat">
+                        <ChatArea />
                     </div>
                 </div>
             </section>

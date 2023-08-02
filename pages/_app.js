@@ -5,6 +5,11 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 
+// store 
+
+import store from '@/store/index';
+import { Provider } from 'react-redux'
+
 // mui 
 import { ThemeProvider } from '@mui/material/styles';
 import Container from '@mui/material/Container';
@@ -26,36 +31,38 @@ export default function MyApp(props) {
         clientSideEmotionCache, pageProps } = props;
 
     return (
-        <CacheProvider value={emotionCache}>
-            <Head>
-                <meta name="viewport"
-                    content="initial-scale=1, width=device-width" />
-            </Head>
-            <ThemeProvider theme={theme}>
-                <Box sx={{ display: 'flex' }}>
-                    <CssBaseline />
-                    <Panel />
-                    <Box
-                        component="main"
-                        sx={{
-                            backgroundColor: (theme) =>
-                                theme.palette.mode === 'light'
-                                    ? theme.palette.grey[100]
-                                    : theme.palette.grey[900],
-                            flexGrow: 1,
-                            height: '100vh',
-                            overflow: 'auto',
-                            paddingTop: '28px'
-                        }}
-                    >
-                        <Toolbar />
-                        <Container maxWidth="xl" sx={{ mt: 3, mb: 3 }}>
-                            <Component {...pageProps} />
-                        </Container>
+        <Provider store={store}>
+            <CacheProvider value={emotionCache}>
+                <Head>
+                    <meta name="viewport"
+                        content="initial-scale=1, width=device-width" />
+                </Head>
+                <ThemeProvider theme={theme}>
+                    <Box sx={{ display: 'flex' }}>
+                        <CssBaseline />
+                        <Panel />
+                        <Box
+                            component="main"
+                            sx={{
+                                backgroundColor: (theme) =>
+                                    theme.palette.mode === 'light'
+                                        ? theme.palette.grey[100]
+                                        : theme.palette.grey[900],
+                                flexGrow: 1,
+                                height: '100vh',
+                                overflow: 'auto',
+                                paddingTop: '28px'
+                            }}
+                        >
+                            <Toolbar />
+                            <Container maxWidth="xl" sx={{ mt: 3, mb: 3 }}>
+                                <Component {...pageProps} />
+                            </Container>
+                        </Box>
                     </Box>
-                </Box>
-            </ThemeProvider>
-        </CacheProvider>
+                </ThemeProvider>
+            </CacheProvider>
+        </Provider>
     );
 }
 
