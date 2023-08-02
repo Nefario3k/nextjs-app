@@ -63,6 +63,7 @@ html:has(.auth-page-container) {
 
 body {
     font-size: 1.6rem;
+    background-color: var(--hover2);
 }
 
 * {
@@ -97,7 +98,25 @@ menu {
     padding: 0;
 }
 
-.mobileburger {
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: none;
+    /* background: var(--black2); */
+    /* border-radius: 10px; */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    /* border-radius: 10px; */
+}
+
+.mobileburger,
+.mobilePanel {
     display: none;
 }
 

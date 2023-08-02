@@ -1,0 +1,305 @@
+@media screen and (max-width: 1200px) {
+
+    .deskburger,
+    .desktopPanel {
+        display: none !important;
+    }
+
+    .mobileburger,
+    .mobilePanel {
+        display: block;
+    }
+
+    .appBarHead {
+        margin-left: 0 !important;
+        width: 100% !important;
+
+        .appBar {
+            padding-left: 0;
+        }
+    }
+
+    .mobileOpen {
+        visibility: visible !important;
+
+        &>div {
+            visibility: visible !important;
+            opacity: 1 !important;
+            transform: translateX(0) !important;
+            transition: all 0.3s ease-in-out !important;
+        }
+    }
+
+    .navContent {
+
+        &>div,
+        a {
+            &.close {
+                max-width: 100%;
+                justify-content: flex-start !important;
+
+                &>div:nth-child(2),
+                .upgrade {
+                    display: flex !important;
+                }
+
+                span.infomatics {
+                    display: grid !important;
+                }
+            }
+        }
+    }
+
+    .mobileClose {
+        visibility: hidden !important;
+
+        &>div {
+            transform: translateX(-296) !important;
+            transition: all 0.3s ease-in-out !important;
+        }
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .content_wrapper {
+        &.topWrap {
+            flex-wrap: wrap;
+
+            &>div {
+                &:not(:nth-child(3)) {
+                    flex-basis: calc(50% - 10px);
+                }
+
+                &:nth-child(3) {
+                    flex-basis: 100%;
+                }
+
+            }
+        }
+
+        &.middleWrap {
+            flex-wrap: wrap;
+
+            &>div {
+                width: 100% !important;
+                flex-basis: 100%;
+
+            }
+        }
+
+        &.chatWrap {
+            flex-wrap: wrap;
+
+            .content_cards {
+
+                &.variant__contact,
+                &.variant__chat {
+                    flex-basis: 100%;
+                    width: 100% !important;
+
+                    &:has(.hasContent) {
+                        display: none;
+                    }
+                }
+
+                // &.variant__chat {
+                // }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .content_wrapper {
+        &.topWrap {
+
+            &>div {
+                &:not(:nth-child(3)) {
+                    flex-basis: 100%
+                }
+
+            }
+        }
+
+        &.middleWrap {
+
+            &>div {
+                .marketingWrapper {
+                    flex-wrap: wrap;
+
+                    &>div {
+                        flex-basis: 100%;
+                    }
+                }
+
+            }
+        }
+
+        span {
+            font-size: 1.2rem !important;
+        }
+
+
+
+        .content_cards {
+            h3 {
+                font-size: 1.4rem;
+            }
+
+            h4 {
+                font-size: 1.2rem !important;
+            }
+
+            h6 {
+                font-size: 1.4rem !important;
+            }
+
+            &.variant_order {
+                .imageHolder {
+                    width: 4rem !important;
+                    height: 4rem !important;
+                }
+            }
+
+            &.variant__contact {
+                .topHeader {
+                    padding: 16px;
+                }
+
+                ul {
+                    li {
+                        padding: 12px 16px;
+
+                        aside {
+                            .imageHolder {
+                                min-width: 4.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.variant__chat {
+
+                .header_chat,
+                .ChatSectionWrapper,
+                .inputArea {
+                    padding: 16px;
+                }
+
+                .variant_back {
+                    display: flex !important;
+                }
+
+                .chat_bubble {
+                    font-size: 1.4rem !important;
+                    max-width: 75% !important;
+                }
+
+                .tagline {
+                    display: none;
+                }
+
+                .message_counter {
+                    display: none !important;
+
+                    &+button {
+                        margin-left: auto !important;
+                    }
+                }
+
+                .imageHolder {
+                    width: 4rem !important;
+                    height: 4rem !important;
+                }
+
+                span.date span {
+                    display: none;
+                }
+
+                .inputArea {
+                    margin-inline: 16px;
+
+                    textarea {
+                        padding-inline: 50px 100px;
+                    }
+
+                    .absolute {
+                        svg {
+                            width: 2.5rem;
+                            height: 2.5rem;
+                        }
+
+                        &.emoji {
+                            right: 70px;
+                        }
+
+                        &.send {
+                            .Btn {
+                                padding: 8px;
+                                overflow: hidden;
+
+                                svg {
+                                    width: 2rem;
+                                    height: 2rem;
+                                }
+
+                                span {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+
+        }
+    }
+
+    .page_header {
+        h4 {
+            font-size: 1.4rem;
+        }
+
+        .drowpDownbtn {
+            height: 4rem;
+            max-width: max-content;
+            padding-inline: 20px;
+
+            span {
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    .appBar {
+        .barContent {
+            p.useLocation {
+                font-size: 1.4rem;
+            }
+
+            .rightSide {
+                .Btn {
+                    &.drowpDownbtn {
+                        display: none;
+                    }
+
+                    &.notifications,
+                    &.userImage {
+                        width: 3rem;
+                        height: 3rem;
+                    }
+                }
+            }
+        }
+
+        .logo {
+            svg {
+                width: 3rem;
+                height: 3rem;
+            }
+        }
+    }
+
+}

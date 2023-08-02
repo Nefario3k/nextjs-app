@@ -485,6 +485,29 @@
                         font-size: 1.4rem;
                     }
                 }
+
+                &.variant_back {
+                    display: none;
+                    min-width: max-content;
+                    padding: 0;
+                    color: var(--primary-color);
+                    background-color: transparent !important;
+                    border-radius: 0;
+
+                    span {
+                        font-size: 1.4rem !important;
+                    }
+
+                    svg {
+                        fill: currentColor;
+                    }
+
+                    &:hover {
+                        svg {
+                            transform: translateX(-7px);
+                        }
+                    }
+                }
             }
         }
 
@@ -496,6 +519,7 @@
 
             &.tag {
                 color: var(--label-third-color, #8b8d97);
+                align-self: end;
             }
 
             &.value {
@@ -536,6 +560,8 @@
                 color: var(--black2);
                 background-color: var(--infoY3);
                 border-radius: 30px;
+                max-width: max-content;
+                align-self: end;
 
                 &.higher {
                     padding: 4px 8px;
@@ -557,6 +583,12 @@
             font-style: normal;
             font-weight: 500;
             line-height: normal;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .searchArea {
@@ -693,6 +725,7 @@
 
         &.variant__contact {
             padding: 0;
+            animation: transIn 0.2s linear 0s;
             max-height: 75vh;
 
             .topHeader {
@@ -922,13 +955,13 @@
             }
 
             .inputArea {
-                padding-inline: 0;
+                padding-inline: 0 !important;
                 margin-inline: 22px;
 
                 textarea {
                     width: 100%;
                     padding-block: 12px;
-                    padding-inline: 80px 160px;
+                    padding-inline: 60px 160px;
                     height: 5.1rem;
                     resize: none;
                     outline: none;

@@ -9,12 +9,12 @@ import IconButton from '@mui/material/IconButton';
 // import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Lists from '../../src/content/navigationList';
-import Logo from '@/static/svg/logo';
+import Logo from '@/public/svg/logo';
 import { Divider } from '@mui/material';
 // icons 
-import ArrowDown from '@/static/svg/arrowDown';
-import Notification from '@/static/svg/notification';
-import HomeIcon from '@/static/svg/home';
+import ArrowDown from '@/public/svg/arrowDown';
+import Notification from '@/public/svg/notification';
+import HomeIcon from '@/public/svg/home';
 
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from 'next/link';
@@ -23,6 +23,7 @@ const { MainListItems, SecondaryListItems } = Lists
 
 
 const drawerWidth = 296;
+const drawerWidthMobile = 296;
 const appHeight = 84;
 
 // app bar 
@@ -77,13 +78,12 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
 );
 
-export default function ResponsiveDrawer(props) {
+export default function ResponsiveDrawer() {
     const [open, setOpen] = React.useState(true);
     const toggleDrawer = () => {
         setOpen(!open);
     };
 
-    const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
     const handleDrawerToggle = () => {
@@ -114,16 +114,14 @@ export default function ResponsiveDrawer(props) {
             </Toolbar>
             <List style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gridGap: '10px', overflow: 'auto', marginTop: !open ? appHeight + 'px' : '0' }} component="nav">
                 <div className='navContent'>
-                    <MainListItems open={open} />
+                    <MainListItems handleDrawerToggle={handleDrawerToggle} open={open} />
                 </div>
                 <div className='navContent'>
-                    <SecondaryListItems open={open} />
+                    <SecondaryListItems handleDrawerToggle={handleDrawerToggle} open={open} />
                 </div>
             </List>
         </>
     );
-
-    const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
         <>
@@ -135,6 +133,7 @@ export default function ResponsiveDrawer(props) {
             <AppBar
                 position="absolute"
                 open={open}
+                className='appBarHead'
 
             >
                 <Toolbar
@@ -145,6 +144,7 @@ export default function ResponsiveDrawer(props) {
                         height: '100%',
                         ...(open && { pl: [0] }),
                     }}>
+                    {/* desktop  */}
                     <IconButton
                         edge="start"
                         color="inherit"
@@ -161,12 +161,13 @@ export default function ResponsiveDrawer(props) {
                         </div>
                         {/* <MenuIcon /> */}
                     </IconButton>
+                    {/* mobile  */}
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
-                        sx={{ mr: 2 }}
+                        sx={{ mx: 2 }}
                         className='mobileburger'
                     >
                         <div className="logo" >
@@ -188,7 +189,7 @@ export default function ResponsiveDrawer(props) {
                                 </IconButton>
                                 {/* user */}
                                 <IconButton className='Btn userImage'>
-                                    <img src='../../static/image/user.jpg' alt="user" />
+                                    <img src='../../public/image/user.jpg' alt="user" />
                                 </IconButton>
                             </div>
                         </div>
@@ -210,31 +211,26 @@ export default function ResponsiveDrawer(props) {
                     </div>
                 </Toolbar>
             </AppBar>
-
-            {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+            {/* drawer  */}
             <Drawer
-                container={container}
                 variant="temporary"
                 open={mobileOpen}
                 onClose={handleDrawerToggle}
                 ModalProps={{
                     keepMounted: true, // Better open performance on mobile.
                 }}
+                className={`mobilePanel ${mobileOpen ? 'mobileOpen' : 'mobileClose'}`}
                 sx={{
-                    display: { xs: 'block', sm: 'none' },
-                    '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                    '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidthMobile },
                 }}
             >
                 {drawer}
             </Drawer>
 
-            {/* '& .MuiDrawer-paper': {boxSizing: 'border-box', width: drawerWidth }, */}
             <Drawer
                 variant="permanent"
                 open={open}
-                sx={{
-                    display: { xs: 'none', sm: 'block' },
-                }}
+                className='desktopPanel'
             >
                 {drawer}
             </Drawer>

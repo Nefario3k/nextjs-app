@@ -4,7 +4,7 @@ import ContactList from "@/src/content/contact";
 import ChatArea from "@/components/Chat";
 
 // icons 
-import SearchIcon from "@/static/svg/search";
+import SearchIcon from "@/public/svg/search";
 
 export default function Home() {
     return (
@@ -23,7 +23,7 @@ export default function Home() {
                     </IconButton>
                 </header>
                 {/* content  */}
-                <div className="mt-8 content_wrapper flex flex-row gap-8">
+                <div className="mt-8 chatWrap content_wrapper flex flex-row gap-8">
                     {/* contacts */}
                     <div className="content_cards grow variant__contact">
                         <div className="flex gap-14 flex-col">

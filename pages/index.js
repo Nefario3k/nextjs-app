@@ -1,12 +1,12 @@
 import Head from "next/head";
 import IconButton from '@mui/material/IconButton';
 // figma icons 
-import Cart from "@/static/svg/dashboard/cart";
-import Sale from "@/static/svg/dashboard/sale";
-import Customer from "@/static/svg/dashboard/customer";
-import Folder from "@/static/svg/dashboard/folder";
-import Order from "@/static/svg/dashboard/order";
-import ArrowDown from '@/static/svg/arrowDown';
+import Cart from "@/public/svg/dashboard/cart";
+import Sale from "@/public/svg/dashboard/sale";
+import Customer from "@/public/svg/dashboard/customer";
+import Folder from "@/public/svg/dashboard/folder";
+import Order from "@/public/svg/dashboard/order";
+import ArrowDown from '@/public/svg/arrowDown';
 import OrderList from "@/src/content/order";
 
 export default function Home() {
@@ -19,7 +19,7 @@ export default function Home() {
 
             <section className="content">
                 {/* top cards  */}
-                <div className="content_wrapper flex flex-row gap-8">
+                <div className="topWrap content_wrapper flex flex-row gap-8">
                     {/* sale  */}
                     <div className="content_cards basis-1/3">
                         <div className="flex gap-14 flex-col">
@@ -107,10 +107,10 @@ export default function Home() {
                     </div>
                 </div>
                 {/* middle and half section  */}
-                <div className="mt-8 content_wrapper flex flex-row gap-8">
+                <div className="mt-8 middleWrap content_wrapper flex flex-row gap-8">
                     {/* sale  */}
                     <div style={{ width: 'calc(58.5% - 20px)' }} className="flex flex-col gap-8">
-                        <div className="flex flex-row gap-8">
+                        <div className="marketingWrapper flex flex-row gap-8">
                             {/* Marketing */}
                             <div className="content_cards basis-1/2">
                                 <div className="flex gap-14 flex-col">

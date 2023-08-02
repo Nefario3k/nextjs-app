@@ -1,14 +1,14 @@
 
 import * as React from 'react';
 import helper from '@/plugins/helper';
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { setChat } from '@/store/chatSlice'
 const { getFullName } = helper
 const orderArr = [
     {
         first_name: 'Jane',
         last_name: 'Doe',
-        imageUrl: '../../static/image/user1.png',
+        imageUrl: '../../public/image/user1.png',
         last_message: 'I want to know if the price is negotiable, i need about 2 Units',
         quantity: 1,
         message_counter: 1,
@@ -43,7 +43,7 @@ const orderArr = [
         messageDateStamps: ['12 August 2022', 'today'],
         userItem: {
             title: 'iPhone 13',
-            imageUrl: '../../static/image/order1.png',
+            imageUrl: '../../public/image/order1.png',
             price: 730000,
             stock: 12,
         },
@@ -51,7 +51,7 @@ const orderArr = [
     {
         first_name: 'Janet',
         last_name: 'Adebayo',
-        imageUrl: '../../static/image/user2.png',
+        imageUrl: '../../public/image/user2.png',
         last_message: 'I want to know if the price is negotiable, i need about 2 Units',
         quantity: 1,
         message_counter: 1,
@@ -86,7 +86,7 @@ const orderArr = [
         messageDateStamps: ['12 August 2022', 'today'],
         userItem: {
             title: 'iPhone 13',
-            imageUrl: '../../static/image/order1.png',
+            imageUrl: '../../public/image/order1.png',
             price: 730000,
             stock: 12,
         },
@@ -94,7 +94,7 @@ const orderArr = [
     {
         first_name: 'Kunle',
         last_name: 'Adekunle',
-        imageUrl: '../../static/image/user3.png',
+        imageUrl: '../../public/image/user3.png',
         last_message: 'I want to know if the price is negotiable, i need about 2 Units',
         quantity: 1,
         message_counter: 2,
@@ -129,7 +129,7 @@ const orderArr = [
         messageDateStamps: ['12 August 2022', 'today'],
         userItem: {
             title: 'iPhone 13',
-            imageUrl: '../../static/image/order1.png',
+            imageUrl: '../../public/image/order1.png',
             price: 730000,
             stock: 12,
         },
@@ -145,10 +145,12 @@ const multipliedArr = function () {
     return arr;
 }
 export default function ContactList() {
+    const chatData = useSelector(state => state.chat.value)
+    let data = Object.keys(chatData).length
     const dispatch = useDispatch();
     const [active, setActive] = React.useState(null);
     const toggleChat = (element, index) => {
-        if (index !== active) {
+        if (!data) {
             setActive(index);
             dispatch(setChat(element))
         } else {
@@ -156,7 +158,7 @@ export default function ContactList() {
             dispatch(setChat())
         }
     };
-    return <ul>
+    return <ul className={!data ? '' : 'hasContent'}>
         {multipliedArr().map((element, index) => {
             return <li onClick={() => { toggleChat(element, index) }} key={index} className={`${active === index ? 'active' : ''} flex flex-row items-center justify-between gap-8`} >
                 <aside className="flex flex-row items-center gap-4">

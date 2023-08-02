@@ -1,6 +1,6 @@
-import '../static/css/main.css'
-import '../static/css/overide.scss'
-import '../static/css/responsive.scss'
+import '../public/css/main.css'
+import '../public/css/overide.scss'
+import '../public/css/responsive.scss'
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
@@ -44,10 +44,7 @@ export default function MyApp(props) {
                         <Box
                             component="main"
                             sx={{
-                                backgroundColor: (theme) =>
-                                    theme.palette.mode === 'light'
-                                        ? theme.palette.grey[100]
-                                        : theme.palette.grey[900],
+                                backgroundColor: 'var(--hover2)',
                                 flexGrow: 1,
                                 height: '100vh',
                                 overflow: 'auto',

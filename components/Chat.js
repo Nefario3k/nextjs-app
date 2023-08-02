@@ -1,18 +1,20 @@
 import * as React from 'react';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { setChat } from '@/store/chatSlice'
 import helper from '@/plugins/helper';
 import IconButton from '@mui/material/IconButton';
 const { getFullName, formatNaira } = helper
 // icons 
-import MessageIcon from '@/static/svg/message';
-import Order from '@/static/svg/order';
-import PlusIcon from '@/static/svg/plus';
-import EmojiIcon from '@/static/svg/emoji';
-import SendIcon from '@/static/svg/send';
-import ChatCheck from '@/static/svg/chatCheck';
+import MessageIcon from '@/public/svg/message';
+import Order from '@/public/svg/order';
+import PlusIcon from '@/public/svg/plus';
+import EmojiIcon from '@/public/svg/emoji';
+import SendIcon from '@/public/svg/send';
+import ChatCheck from '@/public/svg/chatCheck';
+import ArrowLeft from '@/public/svg/arrowLeft';
 // empty states 
-const EmptyStateChat = function () {
-    return <div className='emptyStates_chat text-center flex flex-row items-center justify-center'>
+const EmptyStateChat = function ({ data }) {
+    return <div className={`emptyStates_chat text-center flex flex-row items-center justify-center ${data ? '' : 'hasContent'}`}>
         <div className='flex flex-col gap-8 items-center'>
             <div>
                 <MessageIcon />
@@ -25,9 +27,14 @@ const EmptyStateChat = function () {
 // chat area 
 const ChatContent = function ({ data }) {
     if (!Object.keys(data).length) return 'An error occurred'
+    const dispatch = useDispatch();
     return <>
         <div className='header_chat flex gap-4 items-center justify-between'>
             <aside className='flex gap-4 items-center'>
+                <IconButton onClick={() => { dispatch(setChat()) }} className='Btn drowpDownbtn variant_back'>
+                    <ArrowLeft />
+                    <span>Back</span>
+                </IconButton>
                 <div className='imageHolder'>
                     <img src={data.imageUrl} alt={getFullName(data.first_name, data.last_name)} />
                 </div>
@@ -51,7 +58,7 @@ const ChatContent = function ({ data }) {
                     <div>
                         <Order />
                     </div>
-                    <span style={{ fontSize: '1.4rem' }} className="date">0 Orders</span>
+                    <span style={{ fontSize: '1.4rem' }} className="date">0 <span>Orders</span></span>
                 </div>
             </div>
         </div>
@@ -101,8 +108,8 @@ const TextArea = function () {
 export default function ChatArea() {
     const chatData = useSelector(state => state.chat.value)
     let data = Object.keys(chatData).length
-    if (!data) return <EmptyStateChat />
-    return <div className="flex gap-4 flex-col">
+    if (!data) return <EmptyStateChat data={data} />
+    return <div className={`flex gap-4 flex-col ${data ? '' : 'hasContent'}`}>
         <ChatContent data={chatData} />
         <TextArea />
     </div>
