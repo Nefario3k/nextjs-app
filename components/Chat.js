@@ -25,7 +25,7 @@ const EmptyStateChat = function () {
 // chat area 
 const ChatContent = function ({ data }) {
     if (!Object.keys(data).length) return 'An error occurred'
-    return <div className="flex gap-14 flex-col">
+    return <>
         <div className='header_chat flex gap-4 items-center justify-between'>
             <aside className='flex gap-4 items-center'>
                 <div className='imageHolder'>
@@ -76,25 +76,25 @@ const ChatContent = function ({ data }) {
                 )
             })}
         </section>
-    </div>
+    </>
 }
 // input fiel 
 const TextArea = function () {
     return <>
         <div className='inputArea relative'>
-            <div className='absolute plus'>
+            <textarea placeholder='Your message' name="" id=""></textarea>
+            <div title='Images, Docs, video, File' className='absolute plus'>
                 <PlusIcon />
             </div>
-            <div className='absolute emoji'>
+            <div title='Emoji' className='absolute emoji'>
                 <EmojiIcon />
             </div>
-            <div className='absolute send'>
+            <div title='Send' className='absolute send'>
                 <IconButton className='Btn drowpDownbtn variant_send'>
                     <span>Send</span>
                     <SendIcon />
                 </IconButton>
             </div>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
         </div>
     </>
 }
@@ -102,8 +102,8 @@ export default function ChatArea() {
     const chatData = useSelector(state => state.chat.value)
     let data = Object.keys(chatData).length
     if (!data) return <EmptyStateChat />
-    return <>
+    return <div className="flex gap-4 flex-col">
         <ChatContent data={chatData} />
         <TextArea />
-    </>
+    </div>
 }

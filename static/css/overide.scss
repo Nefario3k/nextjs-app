@@ -421,6 +421,10 @@
                 grid-gap: 7px;
                 color: var(--label-fouth-color);
 
+                &* {
+                    transition: all 0.25s ease-in-out !important;
+                }
+
                 span {
                     color: currentColor;
                     font-size: 1.2rem;
@@ -433,12 +437,37 @@
                 svg {
                     path {
                         stroke: currentColor;
+
                     }
                 }
 
                 &.variant_primary {
                     background-color: var(--primary-light-color);
                     color: var(--primary-color);
+                }
+
+                &.variant_send {
+                    background-color: var(--infoY5);
+                    color: var(--black2);
+                    padding: 8px 16px;
+
+                    svg {
+                        transition: none;
+
+                        path {
+                            fill: currentColor;
+                            stroke: transparent;
+                        }
+                    }
+
+                    span {
+                        font-size: 1.6rem;
+                    }
+
+                    &:hover {
+                        background-color: var(--primary-color);
+                        color: #fff;
+                    }
                 }
 
                 &.variant_dark {
@@ -610,8 +639,15 @@
 
         &.variant_order {
             padding: 20px;
+            max-height: 75vh;
 
             ul {
+                overflow: auto;
+
+                &::-webkit-scrollbar {
+                    width: 0;
+                }
+
                 li {
                     padding-block: 12px;
                     border-bottom: 1px solid var(--border1, #f1f3f9);
@@ -657,6 +693,7 @@
 
         &.variant__contact {
             padding: 0;
+            max-height: 75vh;
 
             .topHeader {
                 padding: 22px 24px;
@@ -669,9 +706,9 @@
 
             ul {
                 margin-top: -25px;
-                max-height: 65vh;
-                overflow: scroll;
+                overflow: auto;
                 border-block: 1px solid var(--border1, #f1f3f9);
+                margin-bottom: 25px;
 
                 &::-webkit-scrollbar {
                     width: 0;
@@ -756,11 +793,13 @@
 
         &.variant__chat {
             padding: 0;
+            max-height: 75vh;
 
             .header_chat,
             .ChatSectionWrapper,
             .inputArea {
                 padding: 16px 22px;
+                animation: transIn 0.2s linear 0s;
             }
 
             .header_chat {
@@ -818,6 +857,12 @@
             }
 
             #ChatSection {
+                overflow: auto;
+
+                &::-webkit-scrollbar {
+                    width: 0;
+                }
+
                 .ChatSectionWrapper {
                     p.date_stamp {
                         border-radius: 8px;
@@ -877,9 +922,69 @@
             }
 
             .inputArea {
+                padding-inline: 0;
+                margin-inline: 22px;
+
                 textarea {
                     width: 100%;
+                    padding-block: 12px;
+                    padding-inline: 80px 160px;
                     height: 5.1rem;
+                    resize: none;
+                    outline: none;
+                    border-radius: 8px;
+                    border: 1px solid var(--border3, #E1E2E9);
+                    font-size: 2rem;
+
+                    &::-webkit-scrollbar {
+                        width: 0;
+                    }
+
+                    &::placeholder {
+                        color: var(--label-second-color, #6E7079);
+                        font-size: 1.6rem;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                    }
+
+                    &:is(:hover, :focus) {
+                        outline: none;
+                        border-color: var(--primary-color);
+                        caret-color: var(--primary-color);
+                    }
+                }
+
+                .absolute {
+                    top: 47%;
+                    transform: translateY(-50%);
+                    cursor: pointer;
+
+                    &.plus {
+                        left: 12px;
+                        height: max-content;
+                        width: max-content;
+
+                        &:hover {
+                            svg {
+                                rect {
+                                    fill: var(--primary-color);
+                                }
+
+                                path {
+                                    stroke: #fff;
+                                }
+                            }
+                        }
+                    }
+
+                    &.emoji {
+                        right: 125px;
+                    }
+
+                    &.send {
+                        right: 12px;
+                    }
                 }
             }
 
@@ -890,6 +995,7 @@
 // empty states
 .emptyStates_chat {
     padding: 12px;
+    animation: transIn 0.2s linear 0s;
 
     svg {
         width: 13rem;
