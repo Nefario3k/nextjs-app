@@ -5,7 +5,7 @@ const { formatNaira } = helper
 const orderArr = [
     {
         title: 'iPhone 13',
-        imageUrl: '../../public/image/order1.png',
+        imageUrl: '/image/order1.png',
         price: 730000,
         quantity: 1,
         status: 'pending',
@@ -13,7 +13,7 @@ const orderArr = [
     },
     {
         title: 'iPhone 14',
-        imageUrl: '../../public/image/order2.png',
+        imageUrl: '/image/order2.png',
         price: 730000,
         quantity: 1,
         status: 'completed',

@@ -8,7 +8,7 @@ const orderArr = [
     {
         first_name: 'Jane',
         last_name: 'Doe',
-        imageUrl: '../../public/image/user1.png',
+        imageUrl: '/image/user1.png',
         last_message: 'I want to know if the price is negotiable, i need about 2 Units',
         quantity: 1,
         message_counter: 1,
@@ -43,7 +43,7 @@ const orderArr = [
         messageDateStamps: ['12 August 2022', 'today'],
         userItem: {
             title: 'iPhone 13',
-            imageUrl: '../../public/image/order1.png',
+            imageUrl: '/image/order1.png',
             price: 730000,
             stock: 12,
         },
@@ -51,7 +51,7 @@ const orderArr = [
     {
         first_name: 'Janet',
         last_name: 'Adebayo',
-        imageUrl: '../../public/image/user2.png',
+        imageUrl: '/image/user2.png',
         last_message: 'I want to know if the price is negotiable, i need about 2 Units',
         quantity: 1,
         message_counter: 1,
@@ -86,7 +86,7 @@ const orderArr = [
         messageDateStamps: ['12 August 2022', 'today'],
         userItem: {
             title: 'iPhone 13',
-            imageUrl: '../../public/image/order1.png',
+            imageUrl: '/image/order1.png',
             price: 730000,
             stock: 12,
         },
@@ -94,7 +94,7 @@ const orderArr = [
     {
         first_name: 'Kunle',
         last_name: 'Adekunle',
-        imageUrl: '../../public/image/user3.png',
+        imageUrl: '/image/user3.png',
         last_message: 'I want to know if the price is negotiable, i need about 2 Units',
         quantity: 1,
         message_counter: 2,
@@ -129,7 +129,7 @@ const orderArr = [
         messageDateStamps: ['12 August 2022', 'today'],
         userItem: {
             title: 'iPhone 13',
-            imageUrl: '../../public/image/order1.png',
+            imageUrl: '/image/order1.png',
             price: 730000,
             stock: 12,
         },

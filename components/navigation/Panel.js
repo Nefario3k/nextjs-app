@@ -189,7 +189,7 @@ export default function ResponsiveDrawer() {
                                 </IconButton>
                                 {/* user */}
                                 <IconButton className='Btn userImage'>
-                                    <img src='../../public/image/user.jpg' alt="user" />
+                                    <img src='/image/user.jpg' alt="user" />
                                 </IconButton>
                             </div>
                         </div>
