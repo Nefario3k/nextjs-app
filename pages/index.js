@@ -16,7 +16,7 @@ export default function Home() {
         <>
             <Head>
                 <title>Dashboard</title>
-                =            </Head>
+            </Head>
 
             <section className="content">
                 {/* top cards  */}

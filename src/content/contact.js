@@ -150,7 +150,7 @@ export default function ContactList() {
     const dispatch = useDispatch();
     const [active, setActive] = React.useState(null);
     const toggleChat = (element, index) => {
-        if (!data) {
+        if (!data || index !== active) {
             setActive(index);
             dispatch(setChat(element))
         } else {
